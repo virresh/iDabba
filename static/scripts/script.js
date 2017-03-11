@@ -18,7 +18,7 @@ new Vue({
 		itemname: function() {
 			this.$http.get('/api/iname')
 			.then(function (x) {
-				this.iname = x.body;
+				this.iname = x.body['objectName'];
 				//console.log(x);
 			})
 			.catch(function (err) {
