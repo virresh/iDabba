@@ -30,7 +30,7 @@ def draw_rects(img, rects, color):
 if __name__ == '__main__':
     # import sys, getopt
     print("Use escape key to exit !!!\nAll code based on openCV samples")
-    video_src=0;
+    video_src=1;
     cascade_fn = "classifiers/orange_classifier.xml"
     cascade = cv2.CascadeClassifier(cascade_fn)
 
