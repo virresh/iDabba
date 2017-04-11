@@ -2,7 +2,11 @@ new Vue({
 	delimiters: ['${', '}'] ,
 	el: '#stats',
 	data: {
-		iname:''
+		iname:'',
+		iTemp:'',
+		iCount:'',
+		iHumid:'',
+		iWeight:''
 	},	
 
 	http: {
@@ -16,6 +20,17 @@ new Vue({
 
 	methods: {														
 		itemname: function() {
+			this.$http.get('/api/iname')
+			.then(function (x) {
+				this.iname = x.body['objectName'];
+				//console.log(x);
+			})
+			.catch(function (err) {
+				console.log(err);
+			});
+		}
+
+		itemdata: function() {
 			this.$http.get('/api/iname')
 			.then(function (x) {
 				this.iname = x.body['objectName'];

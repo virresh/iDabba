@@ -1,0 +1,135 @@
+/* -----------------------------------------------------------------------------
+
+  TABS COMPONENT
+  
+----------------------------------------------------------------------------- */
+
+/**
+ * Tabs component
+ *
+ * A responsive tabs component that falls back to a linear conent display when
+ * JavaScript is disabled. The following is the default suggested markup to play
+ * nicely with the JavaScript. If you change it up, just make sure you pass in
+ * the correct parameters to the tabs instance.
+ *
+ * <div id="tabs" class="c-tabs no-js">
+ *   <div class="c-tabs-nav">
+ *     <a href="#" class="c-tabs-nav__link is-active"></a>
+ *     <a href="#" class="c-tabs-nav__link"></a>
+ *     ...
+ *   </div>
+ *   <div class="c-tab is-active">
+ *     <div class="c-tab__content"></div>
+ *   </div>
+ *   <div class="c-tab">
+ *     <div class="c-tab__content"></div>
+ *   </div>
+ *   ...
+ * </div>
+ */
+
+.c-tabs {
+  /**/
+}
+
+/**
+ * Tabs navigation
+ */
+
+.c-tabs-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.c-tabs-nav__link {
+  flex: 1;
+  margin-right: 4px;
+  padding: 12px;
+  color: #fff;
+  background-color: $color--neutral-xlight;
+  text-align: center;
+  transition: color 0.3s;
+}
+
+.c-tabs-nav__link:last-child {
+  margin-right: 0;
+}
+
+.c-tabs-nav__link:hover {
+  color: $color--neutral;
+}
+
+.c-tabs-nav__link.is-active {
+  color: $color--theme;
+  background-color: $color--neutral-xxlight;
+}
+
+.c-tabs-nav__link i,
+.c-tabs-nav__link span {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.c-tabs-nav__link i {
+  font-size: $font-size--medium;
+}
+
+.c-tabs-nav__link span {
+  display: none;
+  font-size: $font-size--medium;
+}
+
+@media all and ( min-width: $breakpoint--medium ) {
+
+  .c-tabs-nav__link i {
+    margin-bottom: 12px;
+    font-size: $font-size--large;
+  }
+
+  .c-tabs-nav__link span {
+    display: block;
+  }
+
+}
+
+
+/**
+ * Tab
+ */
+
+.c-tab {
+  display: none;
+  background-color: $color--neutral-xxlight;
+}
+
+.c-tab.is-active {
+  display: block;
+}
+
+.c-tab__content {
+  padding: 1.5rem;
+}
+
+/**
+ * Tabs no-js fallback
+ */
+
+.c-tabs.no-js {
+
+  .c-tabs-nav {
+    display: none;
+  }
+
+  .c-tab {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
+  .c-tab:last-child {
+    margin-bottom: 0;
+  }
+
+}
