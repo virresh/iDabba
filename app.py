@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-	return render_template('home.html')
+	return render_template('index.html')
 
 #example of using rest api for use with our website
 @app.route("/api/iname")
@@ -15,7 +15,7 @@ def iname():
     x = names[random.randint(0,len(names)-1)]
     return jsonify({'objectName':x})
 
-@app.route("/api/temp/<string:data>")
+@app.route("/api/store/<string:data>")
 def tempDataLoad(data):
 	print data
 	fo = open("dataLog.txt","a+")
@@ -30,6 +30,8 @@ def returnData():
 	y = ""
 	for x in fo:
 		y = x
+	
+	
 	return y
 # @app.route("/api/humidity/<string:data>") 
 # def humidityDataLoad(data):

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>iDabba</title>
+  <meta name="description" content="iDabba Control Script">
+  <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../static/css/style.min.css">
+  <link rel="stylesheet" href="../static/css/style1.css">
+</head>
+<body>
+  
+<header class="o-header">
+  
+  <div class="o-container">
+    <h1 class="o-header__title"><b>iDabba Control Centre</b></h1>
+    <h3 class="o-header__title"> Welcome to iDabba Control Centre!</h3>
+  </div>
+</header>
+
+<main class="o-main">
+  <div class="o-container">
+
+    <div class="o-section">
+      <div id="tabs" class="c-tabs no-js">
+        <div class="c-tabs-nav">
+          <a href="#" class="c-tabs-nav__link is-active">
+            <i class="fa fa-home"></i>
+            <span>Home</span>
+          </a>
+          <a href="#" class="c-tabs-nav__link">
+            <i class="fa fa-shield"></i>
+            <span>Temperature</span>
+          </a>
+          <a href="#" class="c-tabs-nav__link">
+           
+            <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+            <span>Humidity</span>
+          </a>
+          <a href="#" class="c-tabs-nav__link">
+         <i class="fa fa-book fa-fw" aria-hidden="true"></i>
+            <span>Weight Statistics</span>
+          </a>
+          <a href="#" class="c-tabs-nav__link">
+          <i class="fa fa-certificate"></i>
+            <span>User Details</span>
+          </a>
+        </div>
+        <div class="c-tab is-active">
+          <div class="c-tab__content">
+            <h2>Welcome home!</h2>
+            <p>This is the iDabba conrol centre, where you get all the details of your items safely kept in our iDabba!</p>
+            <p></p>
+          </div>
+        </div>
+        <div class="c-tab">
+          <div class="c-tab__content">
+            <h2>Keeping the mind cool with our technology :) </h2>
+            <p>Here is the surrounding temperature of your stored item : ${iTemp}</p>
+            <p>You can check the temperature of your items here.</p>
+          </div>
+        </div>
+        <div class="c-tab">
+          <div class="c-tab__content">
+            <h2>No need to damp your spirits!</h2>
+            <h3>Now there is no need to worry unneccessarily about your food items getting spoilt in the humidity or getting infested!</h3>
+            <p<>The surrounding humidity of your item is : ${iHumid}</p>
+          </div>
+        </div>
+        <div class="c-tab">
+          <div class="c-tab__content">
+            <h2>Weight of the item stored at your finger tips, now no need to worry about running short of food stuff whie cooking, be prepared!</h2>
+            <p>Here is the count of your item(s): ${iCount}</p>
+            <p>Net weight of your item: ${iWeight} </p>
+          </div>
+        </div>
+        <div class="c-tab">
+          <div class="c-tab__content">
+            <h2>Item details</h2>
+            <p>Currently kept item: ${iname}</p>
+            <p>Here you can check the item kept.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper">
+          <button class="button" v-on:click="itemdata">Fetch Data</button>
+      </div>
+    </div>
+
+   
+
+<footer class="o-footer">
+  <div class="o-container">
+    <small>&copy; iDabba Team</small>
+    <br>Viresh Gupta
+    <br>Zoha Hamid
+    <br>Brihi Joshi
+    <br>Shravika Mittal
+  </div>
+</footer>
+
+<script src="../static/js/src/tabs.js"></script>
+<script>
+  var myTabs = tabs({
+    el: '#tabs',
+    tabNavigationLinks: '.c-tabs-nav__link',
+    tabContentContainers: '.c-tab'
+  });
+
+  myTabs.init();
+</script>
+
+
+
+</body>
+</html>
