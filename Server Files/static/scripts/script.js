@@ -4,9 +4,9 @@ new Vue({
 	data: {
 		iname:'',
 		iTemp:'',
-		iCount:'',
 		iHumid:'',
-		iWeight:''
+		iWeight:'',
+		rfidV:''
 	},	
 
 	http: {
@@ -15,19 +15,20 @@ new Vue({
 	},
 
 	mounted: function() {
-		this.iname = "Fetch Data. It will appear here.";
+		// this.iname = "Fetch Data. It will appear here.";
+		this.itemdata();
 	},
 
 	methods: {														
 		itemdata: function() {
-			console.log("Here");
+			//console.log("Here");
 			this.$http.get('/api/getrd')
 			.then(function (x) {
 				this.iname = x.body['objectName'];
 				this.iTemp = x.body['temp'];
 				this.iHumid = x.body['humidity'];
 				this.iWeight = x.body['weight'];
-				this.iCount = x.body['counts'];
+				this.rfidV = x.body['rfid'];
 				//console.log(x);
 			})
 			.catch(function (err) {
@@ -39,8 +40,10 @@ new Vue({
 
 
 
-// ,
+//iCount:'',
 
+// ,
+//
 // 		itemname: function() {
 // 			this.$http.get('/api/getrd')
 // 			.then(function (x) {

@@ -33,7 +33,7 @@ def returnData():
 	p = y.replace("\n","_")
 	z = p.split("_");
 	print z	
-	d = {'objectName':"Apple",'temp':z[0],'humidity':z[1],'weight':z[2],'counts':-1}
+	d = {'objectName':"Apple",'temp':z[0],'humidity':z[1],'weight':z[2],'rfid':z[3]}
 	return jsonify(d)
 # @app.route("/api/humidity/<string:data>") 
 # def humidityDataLoad(data):
