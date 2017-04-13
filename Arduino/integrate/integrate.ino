@@ -1,11 +1,12 @@
 #include <dht.h>
 dht DHT;
-#define DHT11_PIN 7
 #include <MFRC522.h>
 #include <SPI.h>
 #include <MFRC522.h>
-#define SS_PIN 10
-#define RST_PIN 9
+
+#define DHT11_PIN 7   
+#define SS_PIN 10     //RFID Slave Select
+#define RST_PIN 9     //RFID Reset 
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 #include <OneWire.h>
 #include <DallasTemperature.h> 

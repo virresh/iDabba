@@ -21,7 +21,7 @@
 HX711 scale(DOUT, CLK);
 
 //Change this calibration factor as per your load cell once it is found you many need to vary it in thousands
-float calibration_factor = -96650; //-106600 worked for my 40Kg max scale setup 
+float calibration_factor = -96650; //-106600 worked for my 40Kg max scale setup  //-116270.00
 
 //=============================================================================================
 //                         SETUP

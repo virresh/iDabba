@@ -1,12 +1,6 @@
 #include <SoftwareSerial.h>
-#define SSIDM "Home Wireless"
-#define PASS "archana01"
 
-SoftwareSerial module(10,11); //RX , TX
-
-#include <dht.h>
-dht DHT;
-#define DHT11_PIN 7
+SoftwareSerial module(5,6); //RX , TX
 
 void setup(){
   Serial.begin(115200);
@@ -17,6 +11,7 @@ void setup(){
   while(!module){
     ;
   }
+  module.print("+++");
   Serial.println("ESP8266 Demo");
   delay(5000);
   module.println("AT");
@@ -30,14 +25,22 @@ void setup(){
     Serial.println("No connection. Establishing one.");
   }
 
-  module.println("AT+CWJAP=\"CC\",\"c0dechamps\"");
-  delay(2000);
-  if(module.find("OK")){
-    Serial.println("Connected To Wifi.");
+  int f=0;
+  while(f==0){
+    module.println("AT+CWJAP=\"CC\",\"c0dechamps\"");
+    delay(2000);
+    if(module.find("OK")){
+      Serial.println("Connected To Wifi.");
+      f=1;
+    }
   }
-  module.println("AT+CIPSTART=\"TCP\",\"192.168.43.54\",8080");
-  if(module.find("OK")){
-    Serial.println("Connection Setup.");
+  f=0;
+  while(f==0){
+    module.println("AT+CIPSTART=\"TCP\",\"192.168.43.54\",8080");
+    if(module.find("OK")){
+      Serial.println("Connection Setup.");
+      f=1;
+    }
   }
 
   module.println("AT+CIPMODE=1");
@@ -47,12 +50,14 @@ void setup(){
   
 }
 
-void sendData(int hVal){
+void sendData(String hVal){
 //  module.println("AT+CIPSTART=\"TCP\",\"192.168.43.54\",8080");
 //  delay(1000);
   String c = "GET /api/store/";
-  c+=String(hVal);
+  c+=hVal;
+  c+="\n";
   module.println(c);
+  module.flush();
 //  module.print("\n");
 //  delay(100);
 //  module.print("+++");
@@ -67,24 +72,24 @@ void sendData(int hVal){
 
 
 void loop(){
-  if(Serial.available()>0){
-    while(Serial.available()>0){
-      char rbyte = Serial.read();
-      module.print(rbyte);
+//  if(Serial.available()>0){
+//    while(Serial.available()>0){
+//      char rbyte = Serial.read();
+//      module.print(rbyte);
+////      Serial.print(rbyte); 
+//    }
+//  }
+//
+//  if(module.available()>0){
+//    while(module.available()>0){
+//      char rbyte = module.read();
 //      Serial.print(rbyte); 
-    }
-  }
+//    }
+//  }
 
-  if(module.available()>0){
-    while(module.available()>0){
-      char rbyte = module.read();
-      Serial.print(rbyte); 
-    }
-  }
-
-  int chk = DHT.read11(DHT11_PIN);
+//  int chk = DHT.read11(DHT11_PIN);
 //  Serial.print("Humidity = ");
-  sendData(DHT.humidity);
+  sendData("Bla_Bla_Bla_Bla_Bla");
 //  Serial.println(DHT.humidity);
 //  delay(10000);
 }
