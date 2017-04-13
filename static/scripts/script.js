@@ -1,6 +1,6 @@
 new Vue({
 	delimiters: ['${', '}'] ,
-	el: '#stats',
+	el: '#tabs',
 	data: {
 		iname:'',
 		iTemp:'',
@@ -19,21 +19,15 @@ new Vue({
 	},
 
 	methods: {														
-		itemname: function() {
-			this.$http.get('/api/iname')
-			.then(function (x) {
-				this.iname = x.body['objectName'];
-				//console.log(x);
-			})
-			.catch(function (err) {
-				console.log(err);
-			});
-		}
-
 		itemdata: function() {
-			this.$http.get('/api/iname')
+			console.log("Here");
+			this.$http.get('/api/getrd')
 			.then(function (x) {
 				this.iname = x.body['objectName'];
+				this.iTemp = x.body['temp'];
+				this.iHumid = x.body['humidity'];
+				this.iWeight = x.body['weight'];
+				this.iCount = x.body['counts'];
 				//console.log(x);
 			})
 			.catch(function (err) {
@@ -42,3 +36,18 @@ new Vue({
 		}
 	}
 });
+
+
+
+// ,
+
+// 		itemname: function() {
+// 			this.$http.get('/api/getrd')
+// 			.then(function (x) {
+// 				this.iname = x.body['objectName'];
+// 				//console.log(x);
+// 			})
+// 			.catch(function (err) {
+// 				console.log(err);
+// 			});
+// 		}
