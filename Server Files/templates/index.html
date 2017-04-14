@@ -8,6 +8,18 @@
 	<link rel="stylesheet" href="../static/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../static/css/style.min.css">
 	<link rel="stylesheet" href="../static/css/style1.css">
+	<style>
+	.button {
+    background-color: #C0C0C0; 
+    border: none;
+    color: #FF1493;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+</style>
 </head>
 <body>
 
@@ -65,7 +77,7 @@
 						<div class="c-tab__content">
 							<h2>No need to damp your spirits!</h2>
 							<h3>Now there is no need to worry unneccessarily about your food items getting spoilt in the humidity or getting infested!</h3>
-							<p>The surrounding humidity of your item is : ${iHumid}</p><p>(in % (Relative Humidity))</p>
+							<p>The surrounding humidity of your item is : ${iHumid}</p><p>(in % (Relative Humidity)) </p>
 						</div>
 					</div>
 					<div class="c-tab">
@@ -84,11 +96,11 @@
 						</div>
 					</div>
 					<div class="wrapper">
-						<button type="button" v-on:click="itemdata">Fetch Data</button>
+						
+						<button class="button" v-on:click="itemdata"> Fetch Data</button>
 					</div>
 				</div>
 			</div>
-
 
 
 			<footer class="o-footer">
