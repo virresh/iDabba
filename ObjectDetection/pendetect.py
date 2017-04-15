@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-strawberry detection from live web-camera using haar cascades
+pen detection from live web-camera using haar cascades
 
 '''
 
@@ -31,7 +31,7 @@ if __name__ == '__main__':
     # import sys, getopt
     print("Use escape key to exit !!!\nAll code based on openCV samples")
     video_src=0;
-    cascade_fn = "classifiers/sonion_classifier.xml"
+    cascade_fn = "classifiers/banana_classifier.xml"
     cascade = cv2.CascadeClassifier(cascade_fn)
 
     cam = create_capture(video_src)
@@ -43,9 +43,10 @@ if __name__ == '__main__':
         t = clock()
         rects = detect(gray, cascade)
         vis = img.copy()
+        #print(str(rects))
         draw_rects(vis, rects, (0, 255, 0))
         dt = clock() - t
-        cv2.imshow('Strawberry detect', vis)
+        cv2.imshow('Pen detect', vis)
         if cv2.waitKey(5) == 27:
             break
     cv2.destroyAllWindows()

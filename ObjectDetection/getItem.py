@@ -32,29 +32,37 @@ if __name__ == '__main__':
 	mypath = 'classifiers'
 	fileList = [ f for f in listdir(mypath) if isfile(join(mypath,f))]
 
-	video_src=1; #this is the default video source available
+	video_src=0; #this is the default video source available
 	cam = create_capture(video_src) #capture that video source
 
 	objectInBox = 'None'
-
+	l = []
 	#iterate over every damn classifier and run it on the captured picture. whatever it results in, return that item
-	for x in fileList:
+	for i in range(10):
 		#fetch the correct cascade
-		cascade_fn = "classifiers/"+x
-		cascade = cv2.CascadeClassifier(cascade_fn)
+		ret, img = cam.read()
+		gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+		gray = cv2.equalizeHist(gray)
 		rects = []
-		for i in range(5):
+		t = []
+		for x in fileList:
+			cascade_fn = "classifiers/"+x
+			cascade = cv2.CascadeClassifier(cascade_fn)
 			#try this classifier for the next 5 frames
-			ret, img = cam.read()
-			gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-			gray = cv2.equalizeHist(gray)
 			rects = detect(gray, cascade)
 			if(len(rects) != 0):
 				#rects is not empty, an object spotted
-				break;
+				t.append(x)
 		if(len(rects)!=0):
 			objectInBox = x
-			break;
+			# break;
+		if(len(t)!=0):
+			i = len(t)/2
+			l.append(t[i])
+			print t
+	j = len(l)/2
+	objectInBox = l[j]
+	print l
 	print objectInBox
 
 
