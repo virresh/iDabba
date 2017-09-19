@@ -15,3 +15,6 @@ The container designed is fuss-free, convenient and washable. We were motivated 
 
 <img src="Meta/ied1.jpg" width="200"> <img src="Meta/ied2.jpg" width="200"> <img src="Meta/ied3.jpeg" width="200">
 Poster Presentations
+
+<br>
+Featured on our Director's Blog : https://jalote.wordpress.com/2017/09/13/introducing-engineering-design-in-first-year-of-a-btech-program/
