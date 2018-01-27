@@ -20,4 +20,4 @@ Poster Presentations
 Featured on our Director's Blog : https://jalote.wordpress.com/2017/09/13/introducing-engineering-design-in-first-year-of-a-btech-program/
 <br>
 
-<img src="Meta/ied4.jpeg" width="200"> <img src="Meta/ied5.jpg" width="200"> <img src="Meta/ied6.jpeg" width="200"> <img src="Meta/ied7.jpeg" width="200"> <img src="Meta/ied8.jpeg" width="200"> <img src="Meta/ied9.jpeg" width="200"> <img src="Meta/ied10.jpeg" width="200">
+<img src="Meta/ied4.jpeg" width="200"> <img src="Meta/ied5.jpeg" width="200"> <img src="Meta/ied6.jpeg" width="200"> <img src="Meta/ied7.jpeg" width="200"> <img src="Meta/ied8.jpeg" width="200"> <img src="Meta/ied9.jpeg" width="200"> <img src="Meta/ied10.jpeg" width="200">
